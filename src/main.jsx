@@ -484,7 +484,7 @@ function About() {
   return (
     <section id="about-me" className="section section-grid">
       <div className="profile-card">
-        <img className="about-photo" src="/assets/profile.png" alt="Kevin Aprilio" />
+        <img className="about-photo" src="/assets/Profile%20Pic.png" alt="Kevin Aprilio" />
       </div>
 
       <div>
