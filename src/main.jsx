@@ -47,7 +47,7 @@ const projects = [
     id: 1,
     title: 'PathIdea UI/UX Concept',
     category: 'Web App',
-    img: '/public/assets/pathidea.png',
+    img: '/assets/pathidea.png',
     desc: 'A digital product marketplace concept for selling presentation templates, CV templates, and posters with preview, category filtering, and payment integration features.',
     stack: ['UI Design', 'React', 'TailwindCSS'],
     demo: ''
@@ -56,7 +56,7 @@ const projects = [
     id: 2,
     title: 'Photos UI Concept',
     category: 'Mobile App',
-    img: '/public/assets/photos.png',
+    img: '/assets/photos.png',
     desc: 'An online photo gallery app concept with upload features, album management, and social sharing functionality.',
     stack: ['Figma', 'Prototype'],
     demo: ''
@@ -65,7 +65,7 @@ const projects = [
     id: 3,
     title: 'Safekota',
     category: 'Web App',
-    img: '/public/assets/safekota.png',
+    img: '/assets/safekota.png',
     desc: 'A web application for monitoring and reporting road conditions, featuring an interactive map, user reports, and accident statistics.',
     stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'],
     demo: 'https://favianjz.github.io/HCI/index.html'
@@ -74,7 +74,7 @@ const projects = [
     id: 4,
     title: 'Sinefolis UI Mobile Concept',
     category: 'Mobile App',
-    img: '/public/assets/sinefolis.png',
+    img: '/assets/sinefolis.png',
     desc: 'A mobile app concept for cinema ticket booking with seat selection, movie schedules, and online payment features.',
     stack: ['Figma', 'Prototype'],
     demo: ''
@@ -83,7 +83,7 @@ const projects = [
     id: 5,
     title: 'Zero Waste',
     category: 'Web App',
-    img: '/public/assets/zerowaste.png',
+    img: '/assets/zerowaste.png',
     desc: 'A web application for selling unsold restaurant food at discounted prices, with location-based search, food category filtering, and payment integration.',
     stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'],
     demo: 'https://favianjz.github.io/WebsiteKelompokSE/'
@@ -92,7 +92,7 @@ const projects = [
     id: 6,
     title: 'Sportzy UI Concept',
     category: 'Web App',
-    img: '/public/assets/sportzy.png',
+    img: '/assets/sportzy.png',
     desc: 'A sports equipment e-commerce website concept with product catalogs, sports category filters, and payment integration.',
     stack: ['UI Design', 'React', 'TailwindCSS'],
     demo: ''
@@ -101,7 +101,7 @@ const projects = [
     id: 7,
     title: 'News Detection',
     category: 'Machine Learning',
-    img: '/public/assets/AI.webp',
+    img: '/assets/AI.webp',
     desc: 'A machine learning model for detecting fake or real news using news datasets and NLP-based classification techniques.',
     stack: ['NLP', 'Python', 'Scikit-learn'],
     demo: 'https://github.com/Epinnn14/Fake-True-news-detection'
@@ -110,7 +110,7 @@ const projects = [
     id: 8,
     title: 'Anomaly Detection',
     category: 'Machine Learning',
-    img: '/public/assets/AI.webp',
+    img: '/assets/AI.webp',
     desc: 'A machine learning model for detecting anomalies in data using clustering and outlier detection techniques.',
     stack: ['Machine Learning', 'Python', 'Scikit-learn'],
     demo: 'https://github.com/Epinnn14/Anomaly-Detection'
@@ -119,7 +119,7 @@ const projects = [
     id: 9,
     title: 'Translation Language',
     category: 'Machine Learning',
-    img: '/public/assets/AI.webp',
+    img: '/assets/AI.webp',
     desc: 'A machine learning model for translating text between English and Japanese.',
     stack: ['NLP', 'Python', 'Deep Learning'],
     demo: 'https://github.com/Epinnn14/Translation-Languange'
@@ -128,7 +128,7 @@ const projects = [
     id: 10,
     title: 'Deep Learning Time Series',
     category: 'Machine Learning',
-    img: '/public/assets/AI.webp',
+    img: '/assets/AI.webp',
     desc: 'A deep learning model for forecasting time series data using LSTM or RNN-based approaches.',
     stack: ['Deep Learning', 'Python', 'TensorFlow'],
     demo: 'https://github.com/Epinnn14/DL-Time-Series'
@@ -137,7 +137,7 @@ const projects = [
     id: 11,
     title: 'Sentiment Analysis',
     category: 'Machine Learning',
-    img: '/public/assets/AI.webp',
+    img: '/assets/AI.webp',
     desc: 'A machine learning model for analyzing sentiment from text, such as product reviews or social media posts.',
     stack: ['NLP', 'Python', 'Scikit-learn'],
     demo: 'https://github.com/Epinnn14/Sentiment-Analysis'
@@ -146,7 +146,7 @@ const projects = [
     id: 12,
     title: 'Image Classification',
     category: 'Machine Learning',
-    img: '/public/assets/AI.webp',
+    img: '/assets/AI.webp',
     desc: 'A machine learning model for classifying images into specific categories using CNN-based visual feature extraction.',
     stack: ['Computer Vision', 'Python', 'TensorFlow'],
     demo: 'https://github.com/Epinnn14/Image-Classification'
@@ -155,7 +155,7 @@ const projects = [
     id: 13,
     title: 'CitizenCare AI Model',
     category: 'Machine Learning',
-    img: '/public/assets/AI.webp',
+    img: '/assets/AI.webp',
     desc: 'A machine learning model designed to help city governments classify citizen reports using NLP and computer vision techniques.',
     stack: ['NLP', 'Python', 'Computer Vision', 'TensorFlow'],
     demo: 'https://github.com/Epinnn14/CitizenCare'
@@ -164,7 +164,7 @@ const projects = [
     id: 14,
     title: 'CitizenCare Web App',
     category: 'Web App',
-    img: '/public/assets/citizencare.png',
+    img: '/assets/citizencare.png',
     desc: 'A web application that helps citizens report urban issues and allows city officials to track, manage, and respond to reports.',
     stack: ['React', 'Node.js', 'Responsive', 'Figma', 'Prototype'],
     demo: 'https://capstone-project-psi-weld.vercel.app/'
@@ -484,7 +484,7 @@ function About() {
   return (
     <section id="about-me" className="section section-grid">
       <div className="profile-card">
-        <img className="about-photo" src="/assets/Profile Pic.png" alt="Kevin Aprilio" />
+        <img className="about-photo" src="/assets/profile.png" alt="Kevin Aprilio" />
       </div>
 
       <div>
