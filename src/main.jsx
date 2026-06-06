@@ -47,7 +47,7 @@ const projects = [
     id: 1,
     title: 'PathIdea UI/UX Concept',
     category: 'Web App',
-    img: '/assets/Pathidea.png',
+    img: '/assets/PathIdea.png',
     desc: 'A digital product marketplace concept for selling presentation templates, CV templates, and posters with preview, category filtering, and payment integration features.',
     stack: ['UI Design', 'React', 'TailwindCSS'],
     demo: ''
@@ -65,7 +65,7 @@ const projects = [
     id: 3,
     title: 'Safekota',
     category: 'Web App',
-    img: '/assets/Safekota.png',
+    img: '/assets/SafeKota.png',
     desc: 'A web application for monitoring and reporting road conditions, featuring an interactive map, user reports, and accident statistics.',
     stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'],
     demo: 'https://favianjz.github.io/HCI/index.html'
@@ -484,7 +484,7 @@ function About() {
   return (
     <section id="about-me" className="section section-grid">
       <div className="profile-card">
-        <img className="about-photo" src="/assets/Profile%20Pic.png" alt="Kevin Aprilio" />
+        <img className="about-photo" src="/assets/profile.png" alt="Kevin Aprilio" />
       </div>
 
       <div>
