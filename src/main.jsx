@@ -47,7 +47,7 @@ const projects = [
     id: 1,
     title: 'PathIdea UI/UX Concept',
     category: 'Web App',
-    img: '/assets/pathidea.png',
+    img: '/assets/Pathidea.png',
     desc: 'A digital product marketplace concept for selling presentation templates, CV templates, and posters with preview, category filtering, and payment integration features.',
     stack: ['UI Design', 'React', 'TailwindCSS'],
     demo: ''
@@ -56,7 +56,7 @@ const projects = [
     id: 2,
     title: 'Photos UI Concept',
     category: 'Mobile App',
-    img: '/assets/photos.png',
+    img: '/assets/Photos.png',
     desc: 'An online photo gallery app concept with upload features, album management, and social sharing functionality.',
     stack: ['Figma', 'Prototype'],
     demo: ''
@@ -65,7 +65,7 @@ const projects = [
     id: 3,
     title: 'Safekota',
     category: 'Web App',
-    img: '/assets/safekota.png',
+    img: '/assets/Safekota.png',
     desc: 'A web application for monitoring and reporting road conditions, featuring an interactive map, user reports, and accident statistics.',
     stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'],
     demo: 'https://favianjz.github.io/HCI/index.html'
@@ -74,7 +74,7 @@ const projects = [
     id: 4,
     title: 'Sinefolis UI Mobile Concept',
     category: 'Mobile App',
-    img: '/assets/sinefolis.png',
+    img: '/assets/Sinefolis.png',
     desc: 'A mobile app concept for cinema ticket booking with seat selection, movie schedules, and online payment features.',
     stack: ['Figma', 'Prototype'],
     demo: ''
@@ -83,7 +83,7 @@ const projects = [
     id: 5,
     title: 'Zero Waste',
     category: 'Web App',
-    img: '/assets/zerowaste.png',
+    img: '/assets/ZeroWaste.png',
     desc: 'A web application for selling unsold restaurant food at discounted prices, with location-based search, food category filtering, and payment integration.',
     stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'],
     demo: 'https://favianjz.github.io/WebsiteKelompokSE/'
@@ -92,7 +92,7 @@ const projects = [
     id: 6,
     title: 'Sportzy UI Concept',
     category: 'Web App',
-    img: '/assets/sportzy.png',
+    img: '/assets/Sportzy.png',
     desc: 'A sports equipment e-commerce website concept with product catalogs, sports category filters, and payment integration.',
     stack: ['UI Design', 'React', 'TailwindCSS'],
     demo: ''
@@ -164,7 +164,7 @@ const projects = [
     id: 14,
     title: 'CitizenCare Web App',
     category: 'Web App',
-    img: '/assets/citizencare.png',
+    img: '/assets/CitizenCare.png',
     desc: 'A web application that helps citizens report urban issues and allows city officials to track, manage, and respond to reports.',
     stack: ['React', 'Node.js', 'Responsive', 'Figma', 'Prototype'],
     demo: 'https://capstone-project-psi-weld.vercel.app/'
