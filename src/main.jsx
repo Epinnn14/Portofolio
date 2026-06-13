@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
-const CV_FILE = '/assets/cv.pdf';
+const CV_FILE = '/assets/CV.pdf';
 
 const accentMap = {
   indigo: '#5b4df1',
