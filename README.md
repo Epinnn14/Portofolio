@@ -1,4 +1,4 @@
-# Modern Interactive Portfolio Template
+# Kevin Aprilio — Portfolio
 
 Web portfolio modern, interaktif, dan customizable menggunakan React + Vite.
 
