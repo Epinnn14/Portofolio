@@ -41,23 +41,34 @@ const quickFacts = [
   ['💬', 'Languages', 'Indonesian & English']
 ];
 
+const services = [
+  { icon: '🖥️', title: 'Web App Development', desc: 'Building responsive, production-ready web apps from design to deployment.',
+    items: ['React & Vite frontend architecture', 'Component-driven UI systems', 'Performance & accessibility tuning', 'Responsive, cross-device layouts'] },
+  { icon: '⚙️', title: 'Backend & API Systems', desc: 'Designing reliable backend services and clean data layers.',
+    items: ['REST API design with Node.js', 'Database modeling with Prisma / SQL', 'Authentication & data integrity', 'Scalable service architecture'] },
+  { icon: '🤖', title: 'AI & Machine Learning', desc: 'Turning language and vision models into practical product features.',
+    items: ['NLP & computer vision pipelines', 'Model training with TensorFlow', 'Anomaly & sentiment detection', 'Deploying ML into web products'] },
+  { icon: '📊', title: 'Data Analysis', desc: 'Exploring and structuring data to support real decisions.',
+    items: ['Data cleaning & structuring', 'Exploratory analysis & visualization', 'Reporting & insight generation', 'Python-based data workflows'] }
+];
+
 const projects = [
-  { id: 1, title: 'PathIdea UI/UX Concept', category: 'Web App', img: '/assets/PathIdea.png',
+  { id: 1, title: 'PathIdea UI/UX Concept', category: 'Web App', img: '/assets/PathIdea.webp',
     desc: 'A digital product marketplace concept for selling presentation templates, CV templates, and posters with preview, category filtering, and payment integration features.',
     stack: ['UI Design', 'React', 'TailwindCSS'], demo: '' },
-  { id: 2, title: 'Photos UI Concept', category: 'Mobile App', img: '/assets/Photos.png',
+  { id: 2, title: 'Photos UI Concept', category: 'Mobile App', img: '/assets/Photos.webp',
     desc: 'An online photo gallery app concept with upload features, album management, and social sharing functionality.',
     stack: ['Figma', 'Prototype'], demo: '' },
-  { id: 3, title: 'Safekota', category: 'Web App', img: '/assets/SafeKota.png',
+  { id: 3, title: 'Safekota', category: 'Web App', img: '/assets/SafeKota.webp',
     desc: 'A web application for monitoring and reporting road conditions, featuring an interactive map, user reports, and accident statistics.',
     stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'], demo: 'https://favianjz.github.io/HCI/index.html' },
-  { id: 4, title: 'Sinefolis UI Mobile Concept', category: 'Mobile App', img: '/assets/Sinefolis.png',
+  { id: 4, title: 'Sinefolis UI Mobile Concept', category: 'Mobile App', img: '/assets/Sinefolis.webp',
     desc: 'A mobile app concept for cinema ticket booking with seat selection, movie schedules, and online payment features.',
     stack: ['Figma', 'Prototype'], demo: '' },
-  { id: 5, title: 'Zero Waste', category: 'Web App', img: '/assets/ZeroWaste.png',
+  { id: 5, title: 'Zero Waste', category: 'Web App', img: '/assets/ZeroWaste.webp',
     desc: 'A web application for selling unsold restaurant food at discounted prices, with location-based search, food category filtering, and payment integration.',
     stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'], demo: 'https://favianjz.github.io/WebsiteKelompokSE/' },
-  { id: 6, title: 'Sportzy UI Concept', category: 'Web App', img: '/assets/Sportzy.png',
+  { id: 6, title: 'Sportzy UI Concept', category: 'Web App', img: '/assets/Sportzy.webp',
     desc: 'A sports equipment e-commerce website concept with product catalogs, sports category filters, and payment integration.',
     stack: ['UI Design', 'React', 'TailwindCSS'], demo: '' },
   { id: 7, title: 'News Detection', category: 'Machine Learning', img: '/assets/AI.webp',
@@ -81,7 +92,7 @@ const projects = [
   { id: 13, title: 'CitizenCare AI Model', category: 'Machine Learning', img: '/assets/AI.webp',
     desc: 'A machine learning model designed to help city governments classify citizen reports using NLP and computer vision techniques.',
     stack: ['NLP', 'Python', 'Computer Vision', 'TensorFlow'], demo: 'https://github.com/Epinnn14/CitizenCare' },
-  { id: 14, title: 'CitizenCare Web App', category: 'Web App', img: '/assets/CitizenCare.png',
+  { id: 14, title: 'CitizenCare Web App', category: 'Web App', img: '/assets/CitizenCare.webp',
     desc: 'A web application that helps citizens report urban issues and allows city officials to track, manage, and respond to reports.',
     stack: ['React', 'Node.js', 'Responsive', 'Figma', 'Prototype'], demo: 'https://capstone-project-psi-weld.vercel.app/' }
 ];
@@ -257,18 +268,30 @@ function Hero({ profile, openCv }) {
 
   return (
     <section className="hero" id="top">
-      <div className="eyebrow"><span className="pulse"></span> Available for new builds</div>
-      <h1>Turning ideas into intelligent, well-crafted software.</h1>
-      <p className="role-type">I build with a focus on <strong>{typed}</strong><span className="caret">|</span></p>
-      <p className="sub">{profile.bio}</p>
-      <div className="hero-cta">
-        <button className="pbtn primary" type="button" onClick={openCv}>View resume</button>
-        <a className="pbtn" href="#contact">Contact me</a>
-      </div>
-      <div className="chips-row">
-        <div className="stat-chip"><b>{profile.exp}</b> year experience</div>
-        <div className="stat-chip"><b>{profile.projects}</b> projects shipped</div>
-        <div className="stat-chip"><b>3</b> focus areas</div>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <div className="eyebrow"><span className="pulse"></span> Available for new builds</div>
+          <h1>Turning ideas into intelligent, well-crafted software.</h1>
+          <p className="role-type">I build with a focus on <strong>{typed}</strong><span className="caret">|</span></p>
+          <p className="sub">{profile.bio}</p>
+          <div className="hero-cta">
+            <button className="pbtn primary" type="button" onClick={openCv}>View resume</button>
+            <a className="pbtn" href="#contact">Contact me</a>
+          </div>
+          <div className="chips-row">
+            <div className="stat-chip"><b>{profile.exp}</b> year experience</div>
+            <div className="stat-chip"><b>{profile.projects}</b> projects shipped</div>
+            <div className="stat-chip"><b>3</b> focus areas</div>
+          </div>
+        </div>
+        <div className="hero-photo">
+          <img
+            src="/assets/profile.webp"
+            alt="Kevin Aprilio"
+            onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+          />
+          <div className="hero-photo-badge"><span className="badge-dot"></span> Open to work</div>
+        </div>
       </div>
     </section>
   );
@@ -300,12 +323,18 @@ function CvModal({ close }) {
 function About() {
   return (
     <section id="about" className="about-section">
-      <div className="about-photo-card">
-        <img
-          src="/assets/profile.png"
-          alt="Kevin Aprilio"
-          onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
-        />
+      <div className="about-snapshot">
+        <p className="snapshot-intro">From first-year software engineering student to shipping production AI tools — here&apos;s how it&apos;s gone so far.</p>
+        <div className="snapshot-journey">
+          <p className="snapshot-journey-label">Journey so far</p>
+          {timeline.map((item) => (
+            <div className="snap-journey-row" key={`${item.year}-${item.role}`}>
+              <span className="snap-dot"></span>
+              <span className="snap-year">{item.year}</span>
+              <span className="snap-role">{item.role}</span>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="about-copy">
         <p className="eyebrow-label">About me</p>
@@ -354,6 +383,26 @@ function Skills() {
   );
 }
 
+function Services() {
+  return (
+    <section id="services">
+      <div className="s-head"><h2>What I can help with</h2><span className="tag">Services</span></div>
+      <div className="services-grid">
+        {services.map((s) => (
+          <div className="service-card" key={s.title}>
+            <span className="service-icon">{s.icon}</span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <ul>
+              {s.items.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ProjectCard({ project, onOpen }) {
   const tiltRef = useTilt();
   const tintVar = project.category === 'Machine Learning' ? 'var(--teal)' : project.category === 'Mobile App' ? 'var(--pink)' : 'var(--violet)';
@@ -361,7 +410,7 @@ function ProjectCard({ project, onOpen }) {
   return (
     <button
       ref={tiltRef}
-      className={`p-card tilt has-bg ${project.id === 14 ? 'feat' : ''}`}
+      className={`p-card tilt has-bg ${[14, 3].includes(project.id) ? 'feat' : ''}`}
       style={{ '--tint': tintVar, backgroundImage: `url(${project.img})` }}
       onClick={() => onOpen(project)}
       type="button"
@@ -476,7 +525,7 @@ function Contact() {
 function App() {
   const [toasts, setToasts] = useState([]);
   const [cvOpen, setCvOpen] = useState(false);
-  const active = useActiveSection(['top', 'about', 'skills', 'work', 'timeline', 'contact']);
+  const active = useActiveSection(['top', 'about', 'services', 'skills', 'work', 'timeline', 'contact']);
 
   const profile = {
     name: 'Kevin Aprilio',
@@ -506,6 +555,7 @@ function App() {
         <div className="wrap">
           <Hero profile={profile} openCv={() => setCvOpen(true)} />
           <About />
+          <Services />
           <Skills />
           <Projects showToast={showToast} />
           <Timeline />
