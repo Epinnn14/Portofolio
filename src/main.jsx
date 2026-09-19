@@ -560,7 +560,7 @@ function App() {
           <Projects showToast={showToast} />
           <Timeline />
           <Contact />
-          <footer>© 2026 Kevin Aprilio. Built with React &amp; Vite.</footer>
+          <footer>© 2026 Kevin Aprilio</footer>
         </div>
       </main>
 
