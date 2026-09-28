@@ -4,52 +4,43 @@ import './styles.css';
 
 const CV_FILE = '/assets/CV.pdf';
 
-const skills = [
-  {
-    title: 'Frontend Development',
-    desc: 'Building fast, responsive, and interactive user interfaces.',
-    items: [
-      ['React', 90],
-      ['Vite', 90],
-      ['Tailwind / CSS', 80]
-    ]
-  },
-  {
-    title: 'Backend & API',
-    desc: 'Designing APIs, database integration, and clean backend services.',
-    items: [
-      ['Node.js', 85],
-      ['TypeScript', 80],
-      ['Prisma / SQL', 85]
-    ]
-  },
-  {
-    title: 'AI Engineering',
-    desc: 'Building AI-powered applications using language and vision models.',
-    items: [
-      ['Machine Learning', 85],
-      ['Deep Learning', 80],
-      ['NLP / Computer Vision', 80]
-    ]
-  }
+/* ---------------- data ---------------- */
+
+const pillars = [
+  { icon: 'devices', accent: 'cyan', title: 'High-Performance Web Platforms',
+    desc: 'Fast, responsive interfaces with clean, component-driven architecture.',
+    tags: ['React', 'Vite', 'Responsive UI'] },
+  { icon: 'dns', accent: 'emerald', title: 'Backend & API Systems',
+    desc: 'Reliable services, typed APIs, and clean data layers.',
+    tags: ['Node.js', 'TypeScript', 'Prisma / SQL'] },
+  { icon: 'neurology', accent: 'violet', title: 'Applied AI & Machine Learning',
+    desc: 'Turning language and vision models into practical product features.',
+    tags: ['TensorFlow', 'NLP', 'Computer Vision'] },
+  { icon: 'query_stats', accent: 'cyan', title: 'Data Analysis',
+    desc: 'Exploring and structuring data to support real decisions.',
+    tags: ['Python', 'Scikit-learn', 'Data Viz'] }
 ];
 
-const quickFacts = [
-  ['🎓', 'Education', 'BINUS University — Software Engineering'],
-  ['📍', 'Location', 'Jakarta, Indonesia'],
-  ['🧩', 'Services', 'Web App, Backend, Machine Learning & AI'],
-  ['💬', 'Languages', 'Indonesian & English']
+const radarSkills = [
+  { name: 'React', pct: 90, blurb: 'Component-driven UI, hooks', cat: 'frontend' },
+  { name: 'Vite', pct: 90, blurb: 'Fast dev server & build tooling', cat: 'frontend' },
+  { name: 'Tailwind / CSS', pct: 80, blurb: 'Responsive, utility-first styling', cat: 'frontend' },
+  { name: 'Figma / UI Design', pct: 80, blurb: 'Wireframes, prototypes, UI concepts', cat: 'frontend' },
+  { name: 'Node.js', pct: 85, blurb: 'REST APIs, server-side logic', cat: 'backend' },
+  { name: 'TypeScript', pct: 80, blurb: 'Typed, safer application code', cat: 'backend' },
+  { name: 'Prisma / SQL', pct: 85, blurb: 'Schema design, queries, migrations', cat: 'backend' },
+  { name: 'REST API Design', pct: 80, blurb: 'Endpoints, validation, service layers', cat: 'backend' },
+  { name: 'Machine Learning', pct: 85, blurb: 'Model training & evaluation', cat: 'ai' },
+  { name: 'Deep Learning', pct: 80, blurb: 'Neural nets, TensorFlow pipelines', cat: 'ai' },
+  { name: 'NLP / Computer Vision', pct: 80, blurb: 'Text & image model pipelines', cat: 'ai' },
+  { name: 'Python & Data Analysis', pct: 85, blurb: 'Data wrangling & modeling workflows', cat: 'ai' }
 ];
 
-const services = [
-  { icon: '🖥️', title: 'Web App Development', desc: 'Building responsive, production-ready web apps from design to deployment.',
-    items: ['React & Vite frontend architecture', 'Component-driven UI systems', 'Performance & accessibility tuning', 'Responsive, cross-device layouts'] },
-  { icon: '⚙️', title: 'Backend & API Systems', desc: 'Designing reliable backend services and clean data layers.',
-    items: ['REST API design with Node.js', 'Database modeling with Prisma / SQL', 'Authentication & data integrity', 'Scalable service architecture'] },
-  { icon: '🤖', title: 'AI & Machine Learning', desc: 'Turning language and vision models into practical product features.',
-    items: ['NLP & computer vision pipelines', 'Model training with TensorFlow', 'Anomaly & sentiment detection', 'Deploying ML into web products'] },
-  { icon: '📊', title: 'Data Analysis', desc: 'Exploring and structuring data to support real decisions.',
-    items: ['Data cleaning & structuring', 'Exploratory analysis & visualization', 'Reporting & insight generation', 'Python-based data workflows'] }
+const radarFilters = [
+  { key: 'all', label: 'All Technologies' },
+  { key: 'frontend', label: 'Frontend & UI' },
+  { key: 'backend', label: 'Backend & APIs' },
+  { key: 'ai', label: 'AI & Machine Learning' }
 ];
 
 const projects = [
@@ -61,13 +52,15 @@ const projects = [
     stack: ['Figma', 'Prototype'], demo: '' },
   { id: 3, title: 'Safekota', category: 'Web App', img: '/assets/SafeKota.webp',
     desc: 'A web application for monitoring and reporting road conditions, featuring an interactive map, user reports, and accident statistics.',
-    stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'], demo: 'https://favianjz.github.io/HCI/index.html' },
+    stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'], demo: 'https://favianjz.github.io/HCI/index.html',
+    terminal: 'safekota.map --live' },
   { id: 4, title: 'Sinefolis UI Mobile Concept', category: 'Mobile App', img: '/assets/Sinefolis.webp',
     desc: 'A mobile app concept for cinema ticket booking with seat selection, movie schedules, and online payment features.',
     stack: ['Figma', 'Prototype'], demo: '' },
   { id: 5, title: 'Zero Waste', category: 'Web App', img: '/assets/ZeroWaste.webp',
     desc: 'A web application for selling unsold restaurant food at discounted prices, with location-based search, food category filtering, and payment integration.',
-    stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'], demo: 'https://favianjz.github.io/WebsiteKelompokSE/' },
+    stack: ['React', 'CSS', 'Responsive', 'Figma', 'Prototype'], demo: 'https://favianjz.github.io/WebsiteKelompokSE/',
+    terminal: 'zerowaste.listings --live' },
   { id: 6, title: 'Sportzy UI Concept', category: 'Web App', img: '/assets/Sportzy.webp',
     desc: 'A sports equipment e-commerce website concept with product catalogs, sports category filters, and payment integration.',
     stack: ['UI Design', 'React', 'TailwindCSS'], demo: '' },
@@ -94,43 +87,51 @@ const projects = [
     stack: ['NLP', 'Python', 'Computer Vision', 'TensorFlow'], demo: 'https://github.com/Epinnn14/CitizenCare' },
   { id: 14, title: 'CitizenCare Web App', category: 'Web App', img: '/assets/CitizenCare.webp',
     desc: 'A web application that helps citizens report urban issues and allows city officials to track, manage, and respond to reports.',
-    stack: ['React', 'Node.js', 'Responsive', 'Figma', 'Prototype'], demo: 'https://capstone-project-psi-weld.vercel.app/' }
+    stack: ['React', 'Node.js', 'Responsive', 'Figma', 'Prototype'], demo: 'https://capstone-project-psi-weld.vercel.app/',
+    terminal: 'citizencare.reports --live' }
 ];
+
+const FLAGSHIP_IDS = [14, 3, 5];
+const flagships = FLAGSHIP_IDS.map((id) => projects.find((p) => p.id === id));
+const moreProjects = projects.filter((p) => !FLAGSHIP_IDS.includes(p.id));
 
 const timeline = [
-  { year: '2026', role: 'Application Developer - Backend Focus', place: 'Internship at BINUS University',
-    desc: 'Built backend APIs and services for a game application using TypeScript and integrated the database with Prisma.' },
+  { year: '2026', role: 'Application Developer — Backend Focus', place: 'Internship at BINUS University',
+    desc: 'Built backend APIs and services for a game application using TypeScript, integrated with Prisma.',
+    tags: ['TypeScript', 'Prisma', 'REST APIs', 'PostgreSQL'] },
   { year: '2026', role: 'AI Engineer Bootcamp', place: 'Dicoding Indonesia x DBS Bank',
-    desc: 'Learned AI fundamentals, machine learning, and practical implementation of AI models for business-oriented solutions.' },
+    desc: 'Learned AI fundamentals, machine learning, and practical implementation of AI models for business-oriented solutions.',
+    tags: ['Machine Learning', 'Applied AI', 'Deep Learning'] },
   { year: '2025', role: 'AI Application Builder', place: 'BINUS University',
-    desc: 'Built AI-based applications with a focus on integrating language and image models into practical digital products.' },
+    desc: 'Built AI-based applications integrating language and image models into practical digital products.',
+    tags: ['LLMs', 'Computer Vision'] },
   { year: '2024', role: 'UI & Web Project Builder', place: 'Personal Projects',
-    desc: 'Worked on web applications and modern user interface design experiments.' },
+    desc: 'Worked on web applications and modern user interface design experiments.',
+    tags: ['React', 'UI Design'] },
   { year: '2023', role: 'Software Engineering Student', place: 'BINUS University',
-    desc: 'Studied software engineering, data structures, algorithms, and fundamental web development.' }
+    desc: 'Studied software engineering, data structures, algorithms, and fundamental web development.',
+    tags: ['Data Structures', 'Algorithms'] }
 ];
 
-const contactCards = [
-  { title: 'Email', value: 'kevinaprilio1406@gmail.com', link: 'mailto:kevinaprilio1406@gmail.com', cta: 'Send Email',
-    icon: (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.75 6.25h16.5a1 1 0 0 1 1 1v9.5a1 1 0 0 1-1 1H3.75a1 1 0 0 1-1-1v-9.5a1 1 0 0 1 1-1Zm0 1.17V7.5l8.25 6.05L20.25 7.5v-.08l-8.25 6.05-8.25-6.05Zm16.5 8.91V9.68l-7.66 5.62a1 1 0 0 1-1.18 0L3.75 9.68v6.65h16.5Z" /></svg>) },
-  { title: 'WhatsApp', value: '+62 821 9813 0192', link: 'https://wa.me/6282198130192', cta: 'Chat on WhatsApp',
-    icon: (<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C8.92 3 3.13 8.79 3.13 15.91c0 2.28.6 4.51 1.74 6.47L3 29l6.8-1.78a12.86 12.86 0 0 0 6.24 1.59c7.12 0 12.91-5.79 12.91-12.91S23.16 3 16.04 3Zm0 23.57c-1.97 0-3.9-.53-5.58-1.54l-.4-.24-4.03 1.06 1.08-3.93-.26-.4a10.63 10.63 0 0 1-1.48-5.61c0-5.88 4.79-10.67 10.67-10.67s10.67 4.79 10.67 10.67-4.79 10.66-10.67 10.66Zm5.85-7.98c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.15-.14.32-.38.48-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.68s1.16 3.12 1.32 3.33c.16.21 2.29 3.5 5.55 4.9.78.34 1.38.54 1.85.69.78.25 1.49.21 2.05.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.3-.21-.62-.37Z" /></svg>) },
-  { title: 'LinkedIn', value: 'Alessandro Kevin Aprilio', link: 'https://www.linkedin.com/in/alessandro-kevin-aprilio', cta: 'Open LinkedIn',
-    icon: (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.1 20.45H3.54V9H7.1v11.45Z" /></svg>) },
-  { title: 'GitHub', value: 'Epinnn14', link: 'https://github.com/Epinnn14', cta: 'Open GitHub',
-    icon: (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.25c-5.39 0-9.75 4.36-9.75 9.75 0 4.31 2.79 7.96 6.67 9.25.49.09.67-.21.67-.47v-1.82c-2.71.59-3.29-1.16-3.29-1.16-.44-1.13-1.08-1.43-1.08-1.43-.89-.61.07-.6.07-.6.98.07 1.5 1.01 1.5 1.01.87 1.49 2.28 1.06 2.84.81.09-.63.34-1.06.62-1.3-2.17-.25-4.45-1.08-4.45-4.82 0-1.06.38-1.94 1.01-2.62-.1-.25-.44-1.24.1-2.59 0 0 .82-.26 2.68 1a9.25 9.25 0 0 1 4.88 0c1.86-1.26 2.68-1 2.68-1 .54 1.35.2 2.34.1 2.59.63.68 1.01 1.56 1.01 2.62 0 3.75-2.29 4.57-4.47 4.81.35.3.66.9.66 1.82v2.7c0 .26.18.56.68.47A9.76 9.76 0 0 0 21.75 12c0-5.39-4.36-9.75-9.75-9.75Z" /></svg>) },
-  { title: 'Book a Call', value: 'Schedule via Calendly', link: 'https://calendly.com/kevinaprilio1406', cta: 'Book a Slot',
-    icon: (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2M17 2v2M3.5 8.5h17M4 5h16a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm3 8h4v4H7v-4Z" /></svg>) }
+const contactChannels = [
+  { icon: 'alternate_email', accent: 'cyan', label: 'Email', value: 'kevinaprilio1406@gmail.com', link: 'mailto:kevinaprilio1406@gmail.com' },
+  { icon: 'calendar_month', accent: 'emerald', label: 'Book a Call', value: 'Schedule via Calendly', link: 'https://calendly.com/kevinaprilio1406', external: true },
+  { icon: 'chat', accent: 'violet', label: 'WhatsApp', value: '+62 821 9813 0192', link: 'https://wa.me/6282198130192', external: true }
 ];
 
 const navLinks = [
-  { label: 'About', target: 'about' },
-  { label: 'Work', target: 'work' },
-  { label: 'Timeline', target: 'timeline' }
+  { label: 'About', target: 'top' },
+  { label: 'Services', target: 'services' },
+  { label: 'Stack', target: 'stack' },
+  { label: 'Works', target: 'works' },
+  { label: 'Journey', target: 'journey' },
+  { label: 'Contact', target: 'contact' }
 ];
 
 const hasValidLink = (link) => typeof link === 'string' && link.trim() !== '';
-const linkLabel = (link) => (link.includes('github.com') ? 'View repo' : 'View live');
+const linkLabel = (link) => (link.includes('github.com') ? 'View Repository' : 'Live Demo');
+
+/* ---------------- hooks ---------------- */
 
 function useTyping(words) {
   const [text, setText] = useState('');
@@ -139,11 +140,11 @@ function useTyping(words) {
 
   useEffect(() => {
     const current = words[wordIndex % words.length];
-    const delay = isDeleting ? 45 : 90;
+    const delay = isDeleting ? 40 : 85;
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setText(current.slice(0, text.length + 1));
-        if (text === current) setTimeout(() => setIsDeleting(true), 1000);
+        if (text === current) setTimeout(() => setIsDeleting(true), 1400);
       } else {
         setText(current.slice(0, text.length - 1));
         if (text === '') {
@@ -178,33 +179,10 @@ function useActiveSection(ids) {
   return active;
 }
 
-function useTilt() {
-  const ref = useRef(null);
+/* ---------------- small pieces ---------------- */
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
-    const fine = window.matchMedia('(pointer: fine)').matches;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!fine || reduced) return undefined;
-
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      el.style.transform = `perspective(700px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg)`;
-    };
-    const onLeave = () => { el.style.transform = ''; };
-
-    el.addEventListener('mousemove', onMove);
-    el.addEventListener('mouseleave', onLeave);
-    return () => {
-      el.removeEventListener('mousemove', onMove);
-      el.removeEventListener('mouseleave', onLeave);
-    };
-  }, []);
-
-  return ref;
+function Icon({ name, className = '' }) {
+  return <span className={`material-symbols-outlined ${className}`}>{name}</span>;
 }
 
 function ToastStack({ toasts }) {
@@ -212,88 +190,11 @@ function ToastStack({ toasts }) {
     <div className="toast-stack" aria-live="polite">
       {toasts.map((toast) => (
         <div className="toast" key={toast.id}>
-          <span className="toast-icon">✓</span>
+          <Icon name="task_alt" className="ic-sm" />
           <span>{toast.message}</span>
         </div>
       ))}
     </div>
-  );
-}
-
-function Header({ active }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  return (
-    <>
-      <div className="nav-wrap">
-        <nav className="pill-nav">
-          <a className="brand" href="#top">Kevin Aprilio</a>
-          <div className="nav-links">
-            {navLinks.map((link) => (
-              <a
-                key={link.target}
-                href={`#${link.target}`}
-                className={active === link.target ? 'is-active' : ''}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <a className="nav-cta" href="#contact">Let&apos;s talk</a>
-          <button
-            className={`nav-toggle ${mobileOpen ? 'open' : ''}`}
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Open menu"
-            aria-expanded={mobileOpen}
-          >
-            <span></span><span></span><span></span>
-          </button>
-        </nav>
-      </div>
-
-      <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
-        {navLinks.map((link) => (
-          <a key={link.target} href={`#${link.target}`} onClick={() => setMobileOpen(false)}>
-            {link.label}
-          </a>
-        ))}
-        <a className="nav-cta" href="#contact" onClick={() => setMobileOpen(false)}>Let&apos;s talk</a>
-      </div>
-    </>
-  );
-}
-
-function Hero({ profile, openCv }) {
-  const typed = useTyping(['web development', 'AI engineering', 'backend systems', 'civic tech']);
-
-  return (
-    <section className="hero" id="top">
-      <div className="hero-grid">
-        <div className="hero-copy">
-          <div className="eyebrow"><span className="pulse"></span> Available for new builds</div>
-          <h1>Turning ideas into intelligent, well-crafted software.</h1>
-          <p className="role-type">I build with a focus on <strong>{typed}</strong><span className="caret">|</span></p>
-          <p className="sub">{profile.bio}</p>
-          <div className="hero-cta">
-            <button className="pbtn primary" type="button" onClick={openCv}>View resume</button>
-            <a className="pbtn" href="#contact">Contact me</a>
-          </div>
-          <div className="chips-row">
-            <div className="stat-chip"><b>{profile.exp}</b> year experience</div>
-            <div className="stat-chip"><b>{profile.projects}</b> projects shipped</div>
-            <div className="stat-chip"><b>3</b> focus areas</div>
-          </div>
-        </div>
-        <div className="hero-photo">
-          <img
-            src="/assets/profile.webp"
-            alt="Kevin Aprilio"
-            onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
-          />
-          <div className="hero-photo-badge"><span className="badge-dot"></span> Open to work</div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -303,7 +204,7 @@ function CvModal({ close }) {
       <div className="glass-modal cv-modal" role="dialog" aria-modal="true" onMouseDown={(e) => e.stopPropagation()}>
         <div className="modal-head">
           <div>
-            <span className="p-cat">Curriculum Vitae</span>
+            <span className="eyebrow-chip">Curriculum Vitae</span>
             <h3>Kevin Aprilio — CV Preview</h3>
           </div>
           <button className="modal-close" onClick={close} aria-label="Close CV modal">×</button>
@@ -312,44 +213,179 @@ function CvModal({ close }) {
           <iframe className="cv-frame" src={CV_FILE} title="Kevin Aprilio CV Preview"></iframe>
         </div>
         <div className="modal-actions">
-          <a className="pbtn" href={CV_FILE} target="_blank" rel="noreferrer">Open in new tab</a>
-          <a className="pbtn primary" href={CV_FILE} download="Kevin-Aprilio-CV.pdf">Download CV</a>
+          <a className="btn btn-outline" href={CV_FILE} target="_blank" rel="noreferrer">Open in new tab</a>
+          <a className="btn btn-primary" href={CV_FILE} download="Kevin-Aprilio-CV.pdf">Download CV</a>
         </div>
       </div>
     </div>
   );
 }
 
-function About() {
+/* ---------------- header ---------------- */
+
+function Header({ active, openCv }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
-    <section id="about" className="about-section">
-      <div className="about-snapshot">
-        <p className="snapshot-intro">From first-year software engineering student to shipping production AI tools — here&apos;s how it&apos;s gone so far.</p>
-        <div className="snapshot-journey">
-          <p className="snapshot-journey-label">Journey so far</p>
-          {timeline.map((item) => (
-            <div className="snap-journey-row" key={`${item.year}-${item.role}`}>
-              <span className="snap-dot"></span>
-              <span className="snap-year">{item.year}</span>
-              <span className="snap-role">{item.role}</span>
-            </div>
-          ))}
+    <>
+      <header className="site-header">
+        <div className="header-inner">
+          <a href="#top" className="brand">
+            <span className="brand-mark">KA</span>
+            <span>Kevin Aprilio</span>
+            <span className="brand-suffix">/dev</span>
+          </a>
+          <nav className="nav-links">
+            {navLinks.map((link) => (
+              <a key={link.target} href={`#${link.target}`} className={active === link.target ? 'is-active' : ''}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div className="header-actions">
+            <span className="status-pill">
+              <span className="dot dot-emerald pulse"></span>
+              Available for Hire
+            </span>
+            <button className="btn btn-primary btn-sm" type="button" onClick={openCv}>Resume</button>
+            <button className={`nav-toggle ${mobileOpen ? 'open' : ''}`} onClick={() => setMobileOpen((v) => !v)} aria-label="Open menu" aria-expanded={mobileOpen}>
+              <span></span><span></span><span></span>
+            </button>
+          </div>
         </div>
+      </header>
+      <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
+        {navLinks.map((link) => (
+          <a key={link.target} href={`#${link.target}`} onClick={() => setMobileOpen(false)}>{link.label}</a>
+        ))}
+        <button className="btn btn-primary" type="button" onClick={() => { setMobileOpen(false); openCv(); }}>Resume</button>
       </div>
-      <div className="about-copy">
-        <p className="eyebrow-label">About me</p>
-        <h2 className="about-title">Building fast, clean, and user-friendly digital ecosystems.</h2>
-        <p className="about-desc">
-          I create digital experiences with a user-centered approach. My focus is building
-          responsive, clean, and natural interfaces while combining frontend, backend, and AI
-          engineering skills to deliver meaningful products.
-        </p>
-        <div className="quick-grid">
-          {quickFacts.map(([icon, title, value]) => (
-            <div className="quick-card" key={title}>
-              <span className="quick-icon">{icon}</span>
-              <b>{title}</b>
-              <p>{value}</p>
+    </>
+  );
+}
+
+/* ---------------- hero ---------------- */
+
+function CommandPalette() {
+  const typed = useTyping(['kevin.profile --inspect', 'stack.list --category=ai', 'works.open --id=citizencare']);
+
+  return (
+    <div className="palette">
+      <div className="palette-chrome">
+        <div className="dots"><span className="dot-r"></span><span className="dot-a"></span><span className="dot-g"></span></div>
+        <span className="palette-url">kevinaprilio-portfolio.vercel.app</span>
+        <span className="palette-live"><span className="dot dot-emerald pulse"></span>live</span>
+      </div>
+      <div className="palette-input">
+        <span className="prompt">$</span>
+        <span>{typed}</span>
+        <span className="caret"></span>
+      </div>
+      <div className="palette-list">
+        <a href="https://github.com/Epinnn14" target="_blank" rel="noreferrer">
+          <span><Icon name="terminal" className="ic-cyan" />GitHub Repositories</span>
+          <span className="meta">gh/Epinnn14 <kbd>G</kbd></span>
+        </a>
+        <a href="https://www.linkedin.com/in/alessandro-kevin-aprilio" target="_blank" rel="noreferrer">
+          <span><Icon name="badge" className="ic-violet" />LinkedIn Network</span>
+          <span className="meta">in/aprilio <kbd>L</kbd></span>
+        </a>
+        <a href="#contact">
+          <span><Icon name="mail" className="ic-emerald" />Direct Transmission</span>
+          <span className="meta">Email <kbd>M</kbd></span>
+        </a>
+        <a href="#stack">
+          <span><Icon name="layers" className="ic-cyan" />Stack Inventory</span>
+          <span className="meta">{radarSkills.length} Core Skills <kbd>T</kbd></span>
+        </a>
+        <a href="#works">
+          <span><Icon name="dataset" className="ic-cyan" />Production Architectures</span>
+          <span className="meta">{flagships.length} Case Studies <kbd>P</kbd></span>
+        </a>
+      </div>
+      <div className="palette-foot">
+        <span>Press shortcut to invoke</span>
+        <span>v1.0.0 · React + Vite</span>
+      </div>
+    </div>
+  );
+}
+
+function QuoteCard() {
+  return (
+    <div className="quote-card">
+      <Icon name="bolt" className="ic-cyan ic-lg" />
+      <div>
+        <span className="quote-title">Ship, don&apos;t theorize</span>
+        <p>Every project here is a real build I shipped or prototyped — from quick UI concepts to deployed AI pipelines.</p>
+      </div>
+    </div>
+  );
+}
+
+function Hero({ profile, openCv }) {
+  return (
+    <section className="hero" id="top">
+      <div className="hero-glow"></div>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <div className="status-pill hero-status">
+            <span className="dot dot-emerald pulse"></span>
+            Status: Open for Work &amp; Internship Roles
+            <span className="sep">•</span>
+            <span className="dim">Jakarta, ID (UTC+7)</span>
+          </div>
+          <h1>Crafting <span className="grad-text">reliable web platforms</span> &amp; practical AI products.</h1>
+          <p className="sub">
+            Hi, I&apos;m <b>Kevin Aprilio</b>. Software Engineering student at BINUS University. I build clean web
+            interfaces, reliable backend services, and practical AI-powered features — bridging frontend, backend,
+            and applied machine learning into real, working products.
+          </p>
+          <div className="hero-cta">
+            <a className="btn btn-primary" href="#works"><span>Explore Projects</span><Icon name="arrow_downward" className="ic-sm" /></a>
+            <a className="btn btn-outline" href="#contact"><Icon name="send" className="ic-sm" /><span>Contact Kevin</span></a>
+            <button className="btn btn-ghost" type="button" onClick={openCv}><Icon name="description" className="ic-sm" /><span>MY CV</span></button>
+          </div>
+          <div className="stat-row">
+            <div className="stat-tile"><span className="num cyan">{profile.projects}</span><span className="lbl">Projects Shipped</span></div>
+            <div className="stat-tile"><span className="num emerald">{profile.exp}+</span><span className="lbl">Yr Hands-on Experience</span></div>
+            <div className="stat-tile"><span className="num ink">3</span><span className="lbl">Core Focus Areas</span></div>
+          </div>
+        </div>
+        <figure className="hero-photo">
+          <img
+            src="/assets/profile.webp"
+            alt="Kevin Aprilio"
+            onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+          />
+          <figcaption className="photo-caption"><span className="dot dot-emerald pulse"></span>Kevin Aprilio</figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- pillars ---------------- */
+
+function Pillars() {
+  return (
+    <section id="services" className="section section-alt">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="eyebrow-row"><span className="eyebrow-chip">01 / ARCHITECTURE</span><span className="rule"></span></div>
+          <div className="section-head-row">
+            <h2>Core Pillars &amp; Competencies</h2>
+          </div>
+        </div>
+        <div className="pillars-grid">
+          {pillars.map((p) => (
+            <div className="pillar-card" key={p.title}>
+              <div className={`pillar-icon ic-${p.accent}`}><Icon name={p.icon} /></div>
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+              <div className="tag-row">
+                {p.tags.map((t) => <span key={t} className="code-tag">{t}</span>)}
+              </div>
             </div>
           ))}
         </div>
@@ -358,113 +394,144 @@ function About() {
   );
 }
 
-function Skills() {
+/* ---------------- stack radar ---------------- */
+
+function StackRadar({ showToast }) {
+  const [filter, setFilter] = useState('all');
+  const filtered = filter === 'all' ? radarSkills : radarSkills.filter((s) => s.cat === filter);
+
   return (
-    <section id="skills">
-      <div className="skills-head">
-        <p className="eyebrow-label">Skills</p>
-        <h2 className="skills-title">Three main capability pillars</h2>
-      </div>
-      <div className="skills-grid">
-        {skills.map((group) => (
-          <div className="skill-panel" key={group.title}>
-            <h3>{group.title}</h3>
-            <p>{group.desc}</p>
-            {group.items.map(([name, value]) => (
-              <div className="bar-row" key={name}>
-                <div className="bar-top"><span>{name}</span><span className="num">{value}%</span></div>
-                <div className="bar-track"><div className="bar-fill" style={{ '--w': `${value}%` }}></div></div>
-              </div>
+    <section id="stack" className="section">
+      <div className="wrap">
+        <div className="section-head row-wrap">
+          <div>
+            <div className="eyebrow-row"><span className="eyebrow-chip">02 / ARSENAL</span><span className="rule"></span></div>
+            <h2>Technical Stack &amp; Radar</h2>
+          </div>
+          <div className="filter-row">
+            {radarFilters.map((f) => (
+              <button
+                key={f.key}
+                className={`filter-btn ${filter === f.key ? 'active' : ''}`}
+                onClick={() => { setFilter(f.key); showToast(`${f.label} filter applied`); }}
+              >
+                {f.label}
+              </button>
             ))}
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Services() {
-  return (
-    <section id="services">
-      <div className="s-head"><h2>What I can help with</h2><span className="tag">Services</span></div>
-      <div className="services-grid">
-        {services.map((s) => (
-          <div className="service-card" key={s.title}>
-            <span className="service-icon">{s.icon}</span>
-            <h3>{s.title}</h3>
-            <p>{s.desc}</p>
-            <ul>
-              {s.items.map((item) => <li key={item}>{item}</li>)}
-            </ul>
+        </div>
+        <div className="skills-grid">
+          {filtered.map((s) => (
+            <div className="skill-card" key={s.name}>
+              <div className="skill-top"><span>{s.name}</span><span className={`pct ic-${s.cat === 'frontend' ? 'cyan' : s.cat === 'backend' ? 'emerald' : 'violet'}`}>{s.pct}%</span></div>
+              <div className="skill-bar"><div className={`skill-fill fill-${s.cat}`} style={{ width: `${s.pct}%` }}></div></div>
+              <div className="skill-bottom"><span>{s.blurb}</span><span className="dot dot-emerald"></span></div>
+            </div>
+          ))}
+        </div>
+        <div className="mandate-banner">
+          <div className="mandate-left">
+            <Icon name="code_blocks" className="ic-cyan ic-lg" />
+            <div>
+              <span className="quote-title">How I approach builds</span>
+              <p>Favors clean, typed code and shipping things that actually work end-to-end over over-engineered abstractions.</p>
+            </div>
           </div>
-        ))}
+          <div className="mandate-right">
+            <span className="status-chip"><span className="dot dot-emerald"></span>Actively building &amp; learning</span>
+            <span className="status-chip"><span className="dot dot-cyan"></span>Open to code review &amp; feedback</span>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({ project, onOpen }) {
-  const tiltRef = useTilt();
-  const tintVar = project.category === 'Machine Learning' ? 'var(--teal)' : project.category === 'Mobile App' ? 'var(--pink)' : 'var(--violet)';
+/* ---------------- case studies / works ---------------- */
 
+function CaseStudy({ project }) {
+  const accent = project.category === 'Machine Learning' ? 'violet' : 'cyan';
   return (
-    <button
-      ref={tiltRef}
-      className={`p-card tilt has-bg ${[14, 3].includes(project.id) ? 'feat' : ''}`}
-      style={{ '--tint': tintVar, backgroundImage: `url(${project.img})` }}
-      onClick={() => onOpen(project)}
-      type="button"
-    >
-      <span className="p-cat">{project.category}</span>
-      <h4>{project.title}</h4>
+    <article className="case-card">
+      <div className="case-copy">
+        <div className="tag-row">
+          <span className={`badge-tag ic-${accent}`}>{project.category}</span>
+          {project.stack.slice(0, 2).map((s) => <span key={s} className="badge-tag-outline">{s}</span>)}
+        </div>
+        <h3>{project.title}</h3>
+        <p>{project.desc}</p>
+        <div className="tag-row">
+          {project.stack.map((s) => <span key={s} className="code-tag">{s}</span>)}
+        </div>
+        <div className="case-actions">
+          {hasValidLink(project.demo) && (
+            <a className="btn btn-primary btn-sm" href={project.demo} target="_blank" rel="noreferrer">
+              <Icon name="open_in_new" className="ic-sm" /><span>{linkLabel(project.demo)}</span>
+            </a>
+          )}
+        </div>
+      </div>
+      <div className="case-visual">
+        <img src={project.img} alt={project.title} loading="lazy" />
+        {project.terminal && (
+          <span className="case-caption"><span className="dot dot-emerald pulse"></span>{project.terminal}</span>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function MoreProjectCard({ project, onOpen }) {
+  return (
+    <button className="mini-card" onClick={() => onOpen(project)} type="button">
+      <img src={project.img} alt="" loading="lazy" />
+      <div className="mini-overlay">
+        <span className="badge-tag-sm">{project.category}</span>
+        <h4>{project.title}</h4>
+      </div>
     </button>
   );
 }
 
-function Projects({ showToast }) {
-  const [active, setActive] = useState('All');
+function Works({ showToast }) {
   const [selected, setSelected] = useState(null);
-  const categories = ['All', 'Web App', 'Mobile App', 'Machine Learning'];
-  const filtered = active === 'All' ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="work">
-      <div className="s-head"><h2>Selected work</h2><span className="tag">{projects.length} projects total</span></div>
-      <div className="filters">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            className={`chip ${active === cat ? 'active' : ''}`}
-            onClick={() => { setActive(cat); showToast(`${cat} filter applied`); }}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-      <div className="proj-bento">
-        {filtered.map((project) => (
-          <ProjectCard key={project.id} project={project} onOpen={setSelected} />
-        ))}
+    <section id="works" className="section section-alt">
+      <div className="wrap">
+        <div className="section-head row-wrap">
+          <div>
+            <div className="eyebrow-row"><span className="eyebrow-chip">03 / PRODUCTION CASE STUDIES</span><span className="rule"></span></div>
+            <h2>Architectures in the Wild</h2>
+          </div>
+        </div>
+        <div className="case-stack">
+          {flagships.map((p) => <CaseStudy key={p.id} project={p} />)}
+        </div>
+
+        <div className="more-head">
+          <h3>More builds</h3>
+          <span className="dim-sm">{moreProjects.length} additional projects &amp; experiments</span>
+        </div>
+        <div className="mini-grid">
+          {moreProjects.map((p) => <MoreProjectCard key={p.id} project={p} onOpen={setSelected} />)}
+        </div>
       </div>
 
       {selected && (
         <div className="modal-backdrop" onMouseDown={() => setSelected(null)}>
           <div className="glass-modal proj-modal" role="dialog" aria-modal="true" onMouseDown={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setSelected(null)} aria-label="Close">×</button>
-            <img
-              src={selected.img}
-              alt={selected.title}
-              onError={(e) => { e.currentTarget.src = 'https://placehold.co/900x600/0b0f1a/eef2fb?text=Project'; }}
-            />
-            <span className="p-cat">{selected.category}</span>
+            <img src={selected.img} alt={selected.title} />
+            <span className="badge-tag">{selected.category}</span>
             <h3>{selected.title}</h3>
             <p>{selected.desc}</p>
-            <div className="p-stack">
-              {selected.stack.map((s) => <span key={s}>{s}</span>)}
+            <div className="tag-row">
+              {selected.stack.map((s) => <span key={s} className="code-tag">{s}</span>)}
             </div>
             {hasValidLink(selected.demo) ? (
-              <a className="pbtn primary" href={selected.demo} target="_blank" rel="noreferrer">
-                {linkLabel(selected.demo)} ↗
+              <a className="btn btn-primary" href={selected.demo} target="_blank" rel="noreferrer">
+                <Icon name="open_in_new" className="ic-sm" /><span>{linkLabel(selected.demo)}</span>
               </a>
             ) : (
               <p className="concept-note">Concept project — no public demo yet.</p>
@@ -476,94 +543,163 @@ function Projects({ showToast }) {
   );
 }
 
-function Timeline() {
-  return (
-    <section id="timeline">
-      <div className="s-head"><h2>Career timeline</h2><span className="tag">2023 — 2026</span></div>
-      <div>
-        {timeline.map((item) => (
-          <div className="tl-row" key={`${item.year}-${item.role}`}>
-            <div className="tl-year">{item.year}</div>
-            <div>
-              <h4>{item.role}</h4>
-              <div className="place">{item.place}</div>
-              <p>{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+/* ---------------- journey / timeline ---------------- */
 
-function Contact() {
+function Journey() {
   return (
-    <section id="contact">
-      <div className="contact-panel">
-        <h2>Let&apos;s build the next project together</h2>
-        <p className="sub">Open for freelance work, internships, and collaboration.</p>
-        <div className="contact-grid">
-          {contactCards.map((card) => (
-            <a
-              key={card.title}
-              className="c-item"
-              href={card.link}
-              target={card.link.startsWith('http') ? '_blank' : undefined}
-              rel={card.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-            >
-              <span className="c-icon">{card.icon}</span>
-              <span className="c-name">{card.title}</span>
-              <span className="c-val">{card.value}</span>
-            </a>
+    <section id="journey" className="section">
+      <div className="wrap">
+        <div className="section-head row-wrap">
+          <div>
+            <div className="eyebrow-row"><span className="eyebrow-chip">04 / TIMELINE</span><span className="rule"></span></div>
+            <h2>Career Journey &amp; Milestones</h2>
+          </div>
+        </div>
+        <div className="journey-grid">
+          <div className="journey-track">
+          {timeline.map((item, i) => (
+            <div className="journey-item" key={`${item.year}-${item.role}`}>
+              <span className={`journey-dot ${i === 0 ? 'dot-cyan' : ''}`}></span>
+              <div className="journey-meta">
+                <span className="badge-tag">{item.year}</span>
+                <span className="dim-sm">{item.place}</span>
+              </div>
+              <h3>{item.role}</h3>
+              <p>{item.desc}</p>
+              <div className="tag-row">
+                {item.tags.map((t) => <span key={t} className="code-tag">{t}</span>)}
+              </div>
+            </div>
           ))}
+          </div>
+          <aside className="journey-side">
+            <CommandPalette />
+            <QuoteCard />
+          </aside>
         </div>
       </div>
     </section>
   );
 }
+
+/* ---------------- contact ---------------- */
+
+function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', type: 'Freelance / Project Assignment', message: '' });
+
+  const submit = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`${form.type} inquiry from ${form.name || 'your portfolio site'}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nType: ${form.type}\n\n${form.message}`);
+    window.location.href = `mailto:kevinaprilio1406@gmail.com?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <section id="contact" className="section section-alt">
+      <div className="wrap">
+        <div className="contact-grid">
+          <div className="contact-left">
+            <div className="eyebrow-row"><span className="eyebrow-chip">05 / DIRECT CHANNEL</span><span className="rule"></span></div>
+            <h2>Let&apos;s build something remarkable.</h2>
+            <p className="section-note">
+              Whether you&apos;re staffing a freelance build, need an AI-powered feature shipped, or just want a
+              second pair of eyes on a system design — my inbox is open.
+            </p>
+            <div className="channel-list">
+              {contactChannels.map((c) => (
+                <a key={c.label} className="channel-row" href={c.link} target={c.external ? '_blank' : undefined} rel={c.external ? 'noopener noreferrer' : undefined}>
+                  <span className="channel-left"><Icon name={c.icon} className={`ic-${c.accent}`} /><span><span className="dim-sm block">{c.label}</span><b>{c.value}</b></span></span>
+                  <Icon name="arrow_forward" className="ic-sm dim" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <form className="dispatch-form" onSubmit={submit}>
+            <div className="dispatch-head">
+              <span><span className="dot dot-cyan pulse"></span>Transmit Project Inquiry</span>
+              <span className="dim-sm mono">mailto: draft</span>
+            </div>
+            <div className="form-row-2">
+              <label>Your Name<input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="e.g. Alex Vance" /></label>
+              <label>Email Address<input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="alex@company.com" /></label>
+            </div>
+            <label>Project Scope / Engagement Type
+              <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
+                <option>Freelance / Project Assignment</option>
+                <option>Internship Opportunity</option>
+                <option>Collaboration</option>
+                <option>Other Inquiry</option>
+              </select>
+            </label>
+            <label>Message
+              <textarea required rows="4" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Outline the project, timeline, or role..."></textarea>
+            </label>
+            <button className="btn btn-primary btn-block" type="submit"><span>Send Message</span><Icon name="arrow_forward" className="ic-sm" /></button>
+            <p className="form-note">Opens your email app with this pre-filled — nothing sends automatically.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- footer ---------------- */
+
+function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="wrap">
+        <div className="footer-bottom">
+          <span>© 2026 Kevin Aprilio</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ---------------- app ---------------- */
 
 function App() {
   const [toasts, setToasts] = useState([]);
   const [cvOpen, setCvOpen] = useState(false);
-  const active = useActiveSection(['top', 'about', 'services', 'skills', 'work', 'timeline', 'contact']);
+  const active = useActiveSection(['top', 'services', 'stack', 'works', 'journey', 'contact']);
 
-  const profile = {
-    name: 'Kevin Aprilio',
-    bio: 'I help build modern digital products through clean interfaces, reliable backend systems, and practical AI-powered solutions — from citizen-report platforms to ML models that classify and detect.',
-    exp: 1,
-    projects: 20
-  };
+  const profile = { exp: 1, projects: 20 };
 
   const showToast = (message) => {
     const id = crypto.randomUUID();
     setToasts((prev) => [...prev, { id, message }]);
-    setTimeout(() => setToasts((prev) => prev.filter((t) => t.id !== id)), 3200);
+    setTimeout(() => setToasts((prev) => prev.filter((t) => t.id !== id)), 3000);
   };
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      const key = e.key.toUpperCase();
+      const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      if (key === 'G') window.open('https://github.com/Epinnn14', '_blank');
+      if (key === 'L') window.open('https://www.linkedin.com/in/alessandro-kevin-aprilio', '_blank');
+      if (key === 'M') go('contact');
+      if (key === 'T') go('stack');
+      if (key === 'P') go('works');
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <>
-      <div className="aurora">
-        <div className="blob b1"></div>
-        <div className="blob b2"></div>
-        <div className="blob b3"></div>
-      </div>
-      <div className="grain"></div>
-
-      <Header active={active} />
-
+      <Header active={active} openCv={() => setCvOpen(true)} />
       <main>
-        <div className="wrap">
-          <Hero profile={profile} openCv={() => setCvOpen(true)} />
-          <About />
-          <Services />
-          <Skills />
-          <Projects showToast={showToast} />
-          <Timeline />
-          <Contact />
-          <footer>© 2026 Kevin Aprilio</footer>
-        </div>
+        <Hero profile={profile} openCv={() => setCvOpen(true)} />
+        <Pillars />
+        <StackRadar showToast={showToast} />
+        <Works showToast={showToast} />
+        <Journey />
+        <Contact />
       </main>
-
+      <Footer />
       <ToastStack toasts={toasts} />
       {cvOpen && <CvModal close={() => setCvOpen(false)} />}
     </>
